@@ -7,9 +7,6 @@
         }
     ],
     "routes": [
-      { "src": "/api-docs", "dest": "/api-docs" },
-      { "src": "/api/auth(.*)", "dest": "/routes/authRouter.js" },
-      { "src": "/api/product(.*)", "dest": "/routes/productRouter.js" },
       { "src": "/(.*)", "dest": "/app.js" }
     ]
   }
