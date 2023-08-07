@@ -15,7 +15,7 @@ const {
   getProductByKeyword,
 } = productRoutesFunction;
 
-productRouter.get("/all-products", getAllProducts);
+productRouter.get("/", getAllProducts);
 productRouter.get("/get-product-by-id/:id", getProductById);
 productRouter.post("/add-product", jwtMiddleware, addProduct);
 productRouter.post("/checkout", jwtMiddleware, checkoutOrder);
