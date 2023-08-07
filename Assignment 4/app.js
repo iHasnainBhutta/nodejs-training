@@ -45,7 +45,7 @@ const setUpExpress = () => {
   app.use("/", authRouter);
   app.use("/api/products", productRouter);
 
-  app.use('/status', (req, res) => {
+  app.get('/status', (req, res) => {
     res.send('Welcome to the Ecom API');
   });
   
