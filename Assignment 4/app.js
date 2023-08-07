@@ -45,6 +45,10 @@ const setUpExpress = () => {
   app.use("/", authRouter);
   app.use("/", productRouter);
 
+  app.get('/', (req, res) => {
+    res.send('Welcome to the Ecom API');
+  });
+  
   DBConnect();
 
   app.listen(port, () => {
