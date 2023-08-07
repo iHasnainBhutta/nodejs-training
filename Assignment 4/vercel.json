@@ -1,11 +1,10 @@
 {
     "version": 2,
-    
     "routes": [
-        { "src": "/api-docs", "dest": "/api-docs" },
-        { "src": "/api/auth(.*)", "dest": "/app.js" },
-        { "src": "/api/product(.*)", "dest": "/app.js" },
-        { "src": "/(.*)", "dest": "/app.js" }
-      ]
-}
+      { "src": "/api-docs", "dest": "/api-docs" },
+      { "src": "/api/auth(.*)", "dest": "/routes/authRouter.js" },
+      { "src": "/api/product(.*)", "dest": "/routes/productRouter.js" },
+      { "src": "/(.*)", "dest": "/app.js" }
+    ]
+  }
   
