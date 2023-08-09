@@ -46,7 +46,7 @@ const port = process.env.PORT || 8008;
   app.use("/", authRouter);
   app.use("/api/products", productRouter);
 
-  authRouters.get('/status', (req, res) => {
+  app.get('/status', (req, res) => {
     res.send('Welcome to the Ecom API');
   });
   
