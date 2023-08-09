@@ -12,7 +12,7 @@ config();
 const app = express();
 const port = process.env.PORT || 8008;
 
-const setupWorkerProcesses = () => {
+// const setupWorkerProcesses = () => {
   const numCores = os.cpus().length;
   console.log(`Master cluster setting up ${numCores} workers`);
 
@@ -29,9 +29,9 @@ const setupWorkerProcesses = () => {
     console.log("Starting a new worker");
     cluster.fork();
   });
-};
+// };
 
-const setUpExpress = () => {
+// const setUpExpress = () => {
   app.use(json());
   app.use(urlencoded({ extended: false }));
 
@@ -60,13 +60,13 @@ const setUpExpress = () => {
     console.error("on url", appCtx.req.url);
     console.error("with headers", appCtx.req.headers);
   });
-};
+// };
 
 // const setupServer = (isClusterRequired) => {
 //   if (isClusterRequired && cluster.isPrimary) {
-    setupWorkerProcesses();
+    // setupWorkerProcesses();
 //   } else {
-    setUpExpress();
+    // setUpExpress();
 //   }
 // };
 
