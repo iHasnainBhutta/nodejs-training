@@ -7,6 +7,7 @@ import DBConnect from "./config/dbConnection.js";
 import authRouter from "./routes/authRouter.js";
 import productRouter from "./routes/productRouter.js";
 
+const authRouters = Router();
 config();
 
 const app = express();
@@ -45,7 +46,7 @@ const setUpExpress = () => {
   app.use("/", authRouter);
   app.use("/api/products", productRouter);
 
-  router.get('/status', (req, res) => {
+  authRouters.get('/status', (req, res) => {
     res.send('Welcome to the Ecom API');
   });
   
