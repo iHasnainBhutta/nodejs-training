@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import express, { json, urlencoded } from "express";
+import express, { json, urlencoded, router } from "express";
 import cluster from "cluster";
 import os from "os";
 import morgan from "morgan";
@@ -45,7 +45,7 @@ const setUpExpress = () => {
   app.use("/", authRouter);
   app.use("/api/products", productRouter);
 
-  app.get('/status', (req, res) => {
+  router.get('/status', (req, res) => {
     res.send('Welcome to the Ecom API');
   });
   
