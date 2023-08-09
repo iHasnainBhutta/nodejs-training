@@ -43,7 +43,7 @@ const port = process.env.PORT || 8008;
   app.set("view engine", "ejs");
   app.use(express.static("public"));
 
-  app.use("/", authRouter);
+  app.use("/api/auth", authRouter);
   app.use("/api/products", productRouter);
 
   app.get('/status', (req, res) => {
