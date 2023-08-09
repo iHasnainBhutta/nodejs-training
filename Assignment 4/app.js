@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import express, { json, urlencoded, router } from "express";
+import express, { json, urlencoded, } from "express";
 import cluster from "cluster";
 import os from "os";
 import morgan from "morgan";
@@ -7,7 +7,6 @@ import DBConnect from "./config/dbConnection.js";
 import authRouter from "./routes/authRouter.js";
 import productRouter from "./routes/productRouter.js";
 
-const authRouters = Router();
 config();
 
 const app = express();
