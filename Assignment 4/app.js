@@ -35,9 +35,9 @@ const setUpExpress = () => {
   app.use(json());
   app.use(urlencoded({ extended: false }));
 
-  if (process.env.NODE_ENV === "dev") {
-    app.use(morgan("dev"));
-  }
+  // if (process.env.NODE_ENV === "dev") {
+  //   app.use(morgan("dev"));
+  // }
 
   app.set("view engine", "ejs");
   app.use(express.static("public"));
