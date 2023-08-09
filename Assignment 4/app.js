@@ -13,26 +13,26 @@ config();
 const app = express();
 const port = process.env.PORT || 8008;
 
-const setupWorkerProcesses = () => {
-  const numCores = os.cpus().length;
-  console.log(`Master cluster setting up ${numCores} workers`);
+// const setupWorkerProcesses = () => {
+//   const numCores = os.cpus().length;
+//   console.log(`Master cluster setting up ${numCores} workers`);
 
-  for (let i = 0; i < numCores; i += 1) {
-    cluster.fork();
-  }
+//   for (let i = 0; i < numCores; i += 1) {
+//     cluster.fork();
+//   }
 
-  cluster.on("online", (worker) => {
-    console.log(`Worker ${worker.process.pid} is listening`);
-  });
+//   cluster.on("online", (worker) => {
+//     console.log(`Worker ${worker.process.pid} is listening`);
+//   });
 
-  cluster.on("exit", (worker, code, signal) => {
-    console.log(`Worker ${worker.process.pid} died with code: ${code}, and signal: ${signal}`);
-    console.log("Starting a new worker");
-    cluster.fork();
-  });
-};
+//   cluster.on("exit", (worker, code, signal) => {
+//     console.log(`Worker ${worker.process.pid} died with code: ${code}, and signal: ${signal}`);
+//     console.log("Starting a new worker");
+//     cluster.fork();
+//   });
+// };
 
-const setUpExpress = () => {
+// const setUpExpress = () => {
   app.use(json());
   app.use(urlencoded({ extended: false }));
 
@@ -61,16 +61,16 @@ const setUpExpress = () => {
     console.error("on url", appCtx.req.url);
     console.error("with headers", appCtx.req.headers);
   });
-};
+// };
 
-const setupServer = (isClusterRequired) => {
-  if (isClusterRequired && cluster.isPrimary) {
-    setupWorkerProcesses();
-  } else {
-    setUpExpress();
-  }
-};
+// const setupServer = (isClusterRequired) => {
+//   if (isClusterRequired && cluster.isPrimary) {
+//     setupWorkerProcesses();
+//   } else {
+//     setUpExpress();
+//   }
+// };
 
-setupServer(true);
+// setupServer(true);
 
 export default app;
