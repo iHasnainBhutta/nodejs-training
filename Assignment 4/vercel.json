@@ -2,19 +2,16 @@
     "version": 2,
     "builds": [
       {
-        "src": "app.js", 
+        "src": "./app.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
-      {
-        "src": "/api/products",
-        "dest": "/api/products"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
+      { "src": "/api-docs", "dest": "/api-docs" },
+      { "src": "/api/auth(.*)", "dest": "/app.js" },
+      { "src": "/api/products(.*)", "dest": "/app.js" },
+      { "src": "/status", "dest": "/app.js" },
+      { "src": "/(.*)", "dest": "/app.js" }
     ]
   }
   
