@@ -62,14 +62,14 @@ const setUpExpress = () => {
   });
 };
 
-const setupServer = (isClusterRequired) => {
-  if (isClusterRequired && cluster.isPrimary) {
+// const setupServer = (isClusterRequired) => {
+//   if (isClusterRequired && cluster.isPrimary) {
     setupWorkerProcesses();
-  } else {
+//   } else {
     setUpExpress();
-  }
-};
+//   }
+// };
 
-setupServer(true);
+// setupServer(true);
 
 export default app;
