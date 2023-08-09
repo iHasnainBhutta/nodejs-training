@@ -12,7 +12,6 @@ config();
 const app = express();
 const port = process.env.PORT || 8008;
 
-// const setupWorkerProcesses = () => {
   const numCores = os.cpus().length;
   console.log(`Master cluster setting up ${numCores} workers`);
 
@@ -29,9 +28,7 @@ const port = process.env.PORT || 8008;
     console.log("Starting a new worker");
     cluster.fork();
   });
-// };
 
-// const setUpExpress = () => {
   app.use(json());
   app.use(urlencoded({ extended: false }));
 
@@ -45,8 +42,8 @@ const port = process.env.PORT || 8008;
   app.use("/api/auth", authRouter);
   app.use("/api/products", productRouter);
 
-  app.get('/status', (req, res) => {
-    res.send('Welcome to the Ecom API');
+  app.get('/', (req, res) => {
+    res.send('Welcome to the NodeJS e-commerce API');
   });
   
   DBConnect();
@@ -60,16 +57,5 @@ const port = process.env.PORT || 8008;
     console.error("on url", appCtx.req.url);
     console.error("with headers", appCtx.req.headers);
   });
-// };
-
-// const setupServer = (isClusterRequired) => {
-//   if (isClusterRequired && cluster.isPrimary) {
-    // setupWorkerProcesses();
-//   } else {
-    // setUpExpress();
-//   }
-// };
-
-// setupServer(true);
 
 export default app;
