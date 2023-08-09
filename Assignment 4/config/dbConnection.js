@@ -1,7 +1,7 @@
 import { connect } from "mongoose";
 
 const DBConnect = () => {
-  const client = connect(process.env.CONSTRING)
+  const client = connect("mongodb+srv://hasnain-bhutta:39sVAZSb7K48NtXw@cluster1.nrjgdbr.mongodb.net/")
     .then(() => {
       console.log("Connected to MongoDB");
     })
